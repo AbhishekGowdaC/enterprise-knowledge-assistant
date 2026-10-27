@@ -1,0 +1,27 @@
+project:
+  name: enterprise-knowledge-assistant
+  environment: development
+
+documents:
+  supported_formats:
+    - pdf
+    - html
+  chunk_size: 800
+  chunk_overlap: 120
+
+embeddings:
+  provider: sentence-transformers
+  model: BAAI/bge-small-en-v1.5
+
+vector_store:
+  provider: qdrant
+  collection_name: enterprise_documents
+  host: localhost
+  port: 6333
+
+retrieval:
+  top_k: 5
+
+generation:
+  provider: hosted
+  temperature: 0
