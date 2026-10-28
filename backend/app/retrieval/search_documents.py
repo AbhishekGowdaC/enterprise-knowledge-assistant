@@ -26,7 +26,7 @@ def main():
     results = client.query_points(
         collection_name=COLLECTION_NAME,
         query=query_vector,
-        limit=3,
+        limit=5,
         with_payload=True,
     ).points
 

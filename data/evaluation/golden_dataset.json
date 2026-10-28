@@ -1,0 +1,33 @@
+
+[
+  {
+    "question": "How many annual leave days do employees with less than 3 years of service receive?",
+    "expected_answer": "Employees with less than 3 years of service receive 20 days of annual leave per year.",
+    "expected_source": "employee_handbook (1).pdf",
+    "answerable": true
+  },
+  {
+    "question": "Who must approve leave requests?",
+    "expected_answer": "The employee's line manager must approve leave requests.",
+    "expected_source": "employee_handbook (1).pdf",
+    "answerable": true
+  },
+  {
+    "question": "What should employees do before taking leave?",
+    "expected_answer": "Employees must submit leave requests in advance through the HR Portal.",
+    "expected_source": "employee_handbook (1).pdf",
+    "answerable": true
+  },
+  {
+    "question": "What is the company's maternity leave policy?",
+    "expected_answer": "",
+    "expected_source": "",
+    "answerable": false
+  },
+  {
+    "question": "How many paid sick leave days do employees receive per year?",
+    "expected_answer": "Employees receive 10 paid sick leave days per year.",
+    "expected_source": "employee_handbook (1).pdf",
+    "answerable": true
+  }
+]

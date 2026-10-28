@@ -1,97 +1,177 @@
-
 from pathlib import Path
 import uuid
 
 from sentence_transformers import SentenceTransformer
-from qdrant_client import QdrantClient, models
+from qdrant_client import QdrantClient
+from qdrant_client.models import (
+    PointStruct,
+    Filter,
+    FieldCondition,
+    MatchValue,
+    FilterSelector,
+)
 
-from app.ingestion.parsers import parse_html
+from app.ingestion.parsers import parse_pdf, parse_html
 from app.ingestion.chunking import chunk_records
 
 
+# Project paths
 BASE_DIR = Path(__file__).resolve().parents[3]
-SAMPLE_FILE = BASE_DIR / "data" / "raw" / "sample.html"
+RAW_DIR = BASE_DIR / "data" / "raw"
 
+# Configuration
 COLLECTION_NAME = "enterprise_documents"
-MODEL_NAME = "BAAI/bge-small-en-v1.5"
-CHUNK_SIZE = 800
-CHUNK_OVERLAP = 120
+QDRANT_URL = "http://localhost:6333"
+EMBEDDING_MODEL = "BAAI/bge-small-en-v1.5"
+
+from dotenv import load_dotenv
+
+load_dotenv()
+
+def load_documents():
+    """Discover and parse all supported documents in data/raw/."""
+
+    records = []
+
+    pdf_files = sorted(RAW_DIR.glob("*.pdf"))
+    html_files = sorted(RAW_DIR.glob("*.html"))
+
+    print(f"PDF files discovered: {len(pdf_files)}")
+    print(f"HTML files discovered: {len(html_files)}")
+
+    for file_path in pdf_files:
+        print(f"Parsing PDF: {file_path.name}")
+        records.extend(parse_pdf(str(file_path)))
+
+    for file_path in html_files:
+        print(f"Parsing HTML: {file_path.name}")
+        records.extend(parse_html(str(file_path)))
+
+    return records
+
+
+def make_point_id(chunk):
+    """Create a stable point ID for each source and chunk."""
+
+    source = chunk["source"]
+    chunk_index = chunk["chunk_index"]
+
+    unique_key = f"{source}:{chunk_index}"
+
+    return str(uuid.uuid5(uuid.NAMESPACE_URL, unique_key))
 
 
 def main():
-    # 1. Parse the source document.
-    records = parse_html(str(SAMPLE_FILE))
-    print(f"Parsed records: {len(records)}")
+    if not RAW_DIR.exists():
+        raise FileNotFoundError(
+            f"Raw data directory does not exist: {RAW_DIR}"
+        )
 
-    # 2. Split text into overlapping chunks.
+    records = load_documents()
+
+    if not records:
+        raise ValueError(
+            f"No PDF or HTML documents found in {RAW_DIR}"
+        )
+
+    print(f"\nTotal records parsed: {len(records)}")
+
     chunks = chunk_records(
         records,
-        chunk_size=CHUNK_SIZE,
-        chunk_overlap=CHUNK_OVERLAP,
+        chunk_size=800,
+        chunk_overlap=120,
     )
-    print(f"Chunks created: {len(chunks)}")
 
     if not chunks:
-        raise ValueError("No text chunks found.")
+        raise ValueError("No chunks were created from the documents.")
 
-    # 3. Load the embedding model.
-    # First run downloads the model if it is not cached.
-    model = SentenceTransformer(MODEL_NAME)
+    print(f"Total chunks created: {len(chunks)}")
 
-    # 4. Convert each chunk into a normalized vector.
+    # Load the embedding model
+    embedding_model = SentenceTransformer(EMBEDDING_MODEL)
+
     texts = [chunk["text"] for chunk in chunks]
-    embeddings = model.encode(
+
+    embeddings = embedding_model.encode(
         texts,
         normalize_embeddings=True,
         show_progress_bar=True,
     )
+
     print(f"Embedding shape: {embeddings.shape}")
 
-    # 5. Connect to Qdrant.
-    client = QdrantClient(url="http://localhost:6333")
+    # Connect to Qdrant
+    qdrant = QdrantClient(url=QDRANT_URL)
 
-    # 6. Create the collection if it doesn't exist.
-    if not client.collection_exists(COLLECTION_NAME):
-        client.create_collection(
+    try:
+        # Check that the target collection exists.
+        collections = [
+            collection.name
+            for collection in qdrant.get_collections().collections
+        ]
+
+        if COLLECTION_NAME not in collections:
+            raise RuntimeError(
+                f"Qdrant collection '{COLLECTION_NAME}' does not exist. "
+                "Create it before running the indexer."
+            )
+
+        # Remove old chunks for sources being re-indexed.
+        # This prevents stale chunks if a document changes.
+        sources = sorted({
+            chunk["source"]
+            for chunk in chunks
+        })
+
+        for source in sources:
+            qdrant.delete(
+                collection_name=COLLECTION_NAME,
+                points_selector=FilterSelector(
+                    filter=Filter(
+                        must=[
+                            FieldCondition(
+                                key="source",
+                                match=MatchValue(value=source),
+                            )
+                        ]
+                    )
+                ),
+                wait=True,
+            )
+
+        # Build Qdrant points
+        points = []
+
+        for chunk, embedding in zip(chunks, embeddings):
+            points.append(
+                PointStruct(
+                    id=make_point_id(chunk),
+                    vector=embedding.tolist(),
+                    payload=chunk,
+                )
+            )
+
+        # Upload points
+        qdrant.upsert(
             collection_name=COLLECTION_NAME,
-            vectors_config=models.VectorParams(
-                size=embeddings.shape[1],
-                distance=models.Distance.COSINE,
-            ),
-        )
-        print(f"Created collection: {COLLECTION_NAME}")
-
-    # 7. Store vectors and their metadata.
-    points = []
-
-    for chunk, embedding in zip(chunks, embeddings):
-        # Deterministic ID helps avoid duplicate points on reruns.
-        point_id = str(
-            uuid.uuid5(
-                uuid.NAMESPACE_URL,
-                f'{chunk["source"]}:{chunk["chunk_index"]}',
-            )
+            points=points,
+            wait=True,
         )
 
-        points.append(
-            models.PointStruct(
-                id=point_id,
-                vector=embedding.tolist(),
-                payload=chunk,
-            )
-        )
+        # Verify indexing
+        collection_info = qdrant.get_collection(COLLECTION_NAME)
 
-    client.upsert(
-        collection_name=COLLECTION_NAME,
-        points=points,
-        wait=True,
-    )
+        print("\nIndexing completed successfully.")
+        print(f"Sources indexed: {len(sources)}")
+        print(f"Chunks uploaded: {len(points)}")
+        print(f"Total points in collection: {collection_info.points_count}")
+        print("Indexed source files:")
 
-    print(f"Indexed {len(points)} chunks successfully.")
+        for source in sources:
+            print(f"  - {source}")
 
-    # 8. Verify the stored point count.
-    info = client.get_collection(COLLECTION_NAME)
-    print(f"Points in collection: {info.points_count}")
+    finally:
+        qdrant.close()
 
 
 if __name__ == "__main__":
