@@ -3,3 +3,13 @@
 __pycache__/
 *.py[cod]
 .pytest_cache/
+# Temporary backups
+*.bak
+*.backup
+*.pre_full_rag_test.bak
+
+# Generated evaluation results
+data/evaluation/results/
+
+# Python cache
+__pycache__/

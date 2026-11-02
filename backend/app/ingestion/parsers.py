@@ -25,7 +25,7 @@ def parse_pdf(file_path: str) -> list[dict]:
 def parse_html(file_path: str) -> list[dict]:
 
     path = Path(file_path)
-    html = path.read_text(encoding="utf=8")
+    html = path.read_text(encoding="utf-8")
     soup = BeautifulSoup(html, "html.parser")
 
     for element in soup(["script", "style", "nav", "footer"]):

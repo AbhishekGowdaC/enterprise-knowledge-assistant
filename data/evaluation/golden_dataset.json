@@ -1,4 +1,3 @@
-
 [
   {
     "question": "How many annual leave days do employees with less than 3 years of service receive?",
@@ -19,7 +18,7 @@
     "answerable": true
   },
   {
-    "question": "What is the company's maternity leave policy?",
+    "question": "What is the company's adoption reimbursement policy?",
     "expected_answer": "",
     "expected_source": "",
     "answerable": false
@@ -29,5 +28,215 @@
     "expected_answer": "Employees receive 10 paid sick leave days per year.",
     "expected_source": "employee_handbook (1).pdf",
     "answerable": true
+  },
+  {
+    "question": "What are the standard working hours at Contoso?",
+    "expected_answer": "The standard working hours are 9:00 AM to 5:30 PM, including an unpaid 30-minute lunch break.",
+    "expected_source": "employee_handbook (1).pdf",
+    "answerable": true
+  },
+  {
+    "question": "During which hours must employees generally be available for meetings?",
+    "expected_answer": "Employees are expected to be available during core hours from 10:00 AM to 4:00 PM.",
+    "expected_source": "employee_handbook (1).pdf",
+    "answerable": true
+  },
+  {
+    "question": "On which days are employees expected to work from the office?",
+    "expected_answer": "Employees are expected to work from the office on Tuesday, Wednesday, and Thursday. Monday and Friday are remote days unless the manager requests otherwise.",
+    "expected_source": "employee_handbook (1).pdf",
+    "answerable": true
+  },
+  {
+    "question": "By what time must employees report lateness or absence?",
+    "expected_answer": "Employees must notify their line manager by 9:30 AM on the day, by phone or chat message.",
+    "expected_source": "employee_handbook (1).pdf",
+    "answerable": true
+  },
+  {
+    "question": "How many annual leave days can be carried into the next leave year, and when must they be used?",
+    "expected_answer": "Employees may carry over a maximum of 5 unused annual leave days. They must use them by March 31 or forfeit them.",
+    "expected_source": "employee_handbook (1).pdf",
+    "answerable": true
+  },
+  {
+    "question": "How far in advance must employees request annual leave lasting five or more consecutive days?",
+    "expected_answer": "Requests for five or more consecutive days must be submitted at least 10 working days in advance through the HR Portal under Time Off.",
+    "expected_source": "employee_handbook (1).pdf",
+    "answerable": true
+  },
+  {
+    "question": "When is a medical certificate required for sick leave?",
+    "expected_answer": "A medical certificate from a licensed doctor is required when sick leave lasts 3 or more consecutive working days.",
+    "expected_source": "employee_handbook (1).pdf",
+    "answerable": true
+  },
+  {
+    "question": "How much paid parental leave does the primary caregiver receive, and how early must HR be notified?",
+    "expected_answer": "The primary caregiver receives 16 weeks of paid parental leave. HR must be notified at least 8 weeks before the expected start date.",
+    "expected_source": "employee_handbook (1).pdf",
+    "answerable": true
+  },
+  {
+    "question": "What password length and complexity are required by the IT security policy?",
+    "expected_answer": "Passwords must be at least 14 characters long and include uppercase letters, lowercase letters, numbers, and symbols, or be a passphrase of four or more unrelated words.",
+    "expected_source": "it_security_policy.pdf",
+    "answerable": true
+  },
+  {
+    "question": "How often must passwords be changed, and what must happen if compromise is suspected?",
+    "expected_answer": "Passwords must be changed every 180 days and immediately if compromise is suspected.",
+    "expected_source": "it_security_policy.pdf",
+    "answerable": true
+  },
+  {
+    "question": "Which MFA method is approved, and are SMS codes permitted?",
+    "expected_answer": "The Contoso Authenticator mobile app is the approved method. SMS-based codes are not permitted.",
+    "expected_source": "it_security_policy.pdf",
+    "answerable": true
+  },
+  {
+    "question": "How quickly must a lost or stolen MFA device be reported?",
+    "expected_answer": "It must be reported to IT Security within 4 hours so it can be revoked.",
+    "expected_source": "it_security_policy.pdf",
+    "answerable": true
+  },
+  {
+    "question": "Within how many days must operating system and security updates be installed?",
+    "expected_answer": "Operating system and security updates must be installed within 7 days of release.",
+    "expected_source": "it_security_policy.pdf",
+    "answerable": true
+  },
+  {
+    "question": "What approval is required before an employee receives access to a system?",
+    "expected_answer": "The access request must be submitted through the IT Service Portal and approved by both the employee's line manager and the system owner.",
+    "expected_source": "it_security_policy.pdf",
+    "answerable": true
+  },
+  {
+    "question": "How quickly must suspected security incidents be reported?",
+    "expected_answer": "All suspected security incidents must be reported to IT Security within 1 hour of discovery.",
+    "expected_source": "it_security_policy.pdf",
+    "answerable": true
+  },
+  {
+    "question": "What should an employee do after clicking a suspected phishing link or entering credentials?",
+    "expected_answer": "Disconnect the device from the network immediately, change the password from a different device, and call the IT Security Hotline at extension 5555. Do not delete the email until IT Security confirms it is no longer needed as evidence.",
+    "expected_source": "it_security_policy.pdf",
+    "answerable": true
+  },
+  {
+    "question": "When must employees complete security awareness training?",
+    "expected_answer": "Employees must complete training within 30 days of joining and every 12 months thereafter. Employees who fail simulated phishing tests three times in a row must retake it.",
+    "expected_source": "it_security_policy.pdf",
+    "answerable": true
+  },
+  {
+    "question": "Who approves business travel costing $3,000?",
+    "expected_answer": "The Department Director approves travel costing $1,501 to $5,000. Approval must be obtained before booking.",
+    "expected_source": "travel_expense_policy.pdf",
+    "answerable": true
+  },
+  {
+    "question": "Who must approve an international trip costing $6,000?",
+    "expected_answer": "An international trip requires Department Director approval, plus VP approval if the cost exceeds $5,000.",
+    "expected_source": "travel_expense_policy.pdf",
+    "answerable": true
+  },
+  {
+    "question": "How far in advance should employees book business travel whenever possible?",
+    "expected_answer": "Employees should book through the Contoso Travel Portal at least 14 days before departure whenever possible.",
+    "expected_source": "travel_expense_policy.pdf",
+    "answerable": true
+  },
+  {
+    "question": "What is the nightly hotel limit in London, and what approval is required for a stay longer than 14 consecutive nights?",
+    "expected_answer": "The hotel limit in London is $275 per night. Stays longer than 14 consecutive nights require Director approval and should use extended-stay accommodation.",
+    "expected_source": "travel_expense_policy.pdf",
+    "answerable": true
+  },
+  {
+    "question": "What are the daily meal allowance limits for breakfast, lunch, dinner, and all meals combined?",
+    "expected_answer": "Breakfast is limited to $15, lunch to $20, dinner to $40, and the total daily maximum is $75. Alcohol is never reimbursable.",
+    "expected_source": "travel_expense_policy.pdf",
+    "answerable": true
+  },
+  {
+    "question": "When must an expense report be submitted, and what happens if it is submitted after 60 days?",
+    "expected_answer": "Expense reports must be submitted within 30 days of the end of the trip. Reports submitted after 60 days will not be reimbursed.",
+    "expected_source": "travel_expense_policy.pdf",
+    "answerable": true
+  },
+  {
+    "question": "What receipt is required for an expense of $40?",
+    "expected_answer": "An itemized receipt is required for every expense of $25 or more. A credit card slip alone is not accepted.",
+    "expected_source": "travel_expense_policy.pdf",
+    "answerable": true
+  },
+  {
+    "question": "How soon are approved expenses paid, and where is the payment sent?",
+    "expected_answer": "Approved expenses are paid within 10 business days of approval, directly to the employee's payroll bank account.",
+    "expected_source": "travel_expense_policy.pdf",
+    "answerable": true
+  },
+  {
+    "question": "What is the maximum cash advance for an international trip, and when must it be requested and settled?",
+    "expected_answer": "A cash advance of up to $500 may be requested at least 10 business days before departure and must be settled within 15 days of returning.",
+    "expected_source": "travel_expense_policy.pdf",
+    "answerable": true
+  },
+  {
+    "question": "Which health insurance provider does Contoso use?",
+    "expected_answer": "",
+    "expected_source": "",
+    "answerable": false
+  },
+  {
+    "question": "How much tuition reimbursement can an employee claim each year?",
+    "expected_answer": "",
+    "expected_source": "",
+    "answerable": false
+  },
+  {
+    "question": "What is the company's adoption reimbursement amount?",
+    "expected_answer": "",
+    "expected_source": "",
+    "answerable": false
+  },
+  {
+    "question": "What is the exact URL for the employee password-reset page?",
+    "expected_answer": "",
+    "expected_source": "",
+    "answerable": false
+  },
+  {
+    "question": "Which VPN software vendor does Contoso use?",
+    "expected_answer": "",
+    "expected_source": "",
+    "answerable": false
+  },
+  {
+    "question": "What is the company's process for cancelling a booked flight?",
+    "expected_answer": "",
+    "expected_source": "",
+    "answerable": false
+  },
+  {
+    "question": "Does Contoso reimburse international mobile roaming charges?",
+    "expected_answer": "",
+    "expected_source": "",
+    "answerable": false
+  },
+  {
+    "question": "What is the company's laptop replacement schedule?",
+    "expected_answer": "",
+    "expected_source": "",
+    "answerable": false
+  },
+  {
+    "question": "How many paid personal development days does each employee receive annually?",
+    "expected_answer": "",
+    "expected_source": "",
+    "answerable": false
   }
 ]

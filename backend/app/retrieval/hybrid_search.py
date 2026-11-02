@@ -6,7 +6,7 @@ from sentence_transformers import SentenceTransformer
 
 
 QDRANT_URL = "http://localhost:6333"
-COLLECTION_NAME = "enterprise_documents"
+COLLECTION_NAME = "enterprise_documents_expanded"
 EMBEDDING_MODEL = "BAAI/bge-small-en-v1.5"
 
 TOP_K = 5

@@ -3,7 +3,12 @@ def chunk_records(
     chunk_size: int = 800,
     chunk_overlap: int = 120,
 ) -> list[dict]:
-    """Split document records into overlapping character chunks."""
+    """
+    Split document records into overlapping character chunks.
+
+    Chunk indices are sequential per source document rather
+    than global across the complete document collection.
+    """
 
     if chunk_size <= 0:
         raise ValueError("chunk_size must be positive")
@@ -14,9 +19,12 @@ def chunk_records(
         )
 
     chunks = []
+    source_counters = {}
 
     for record in records:
         text = record["text"]
+        source = record.get("source", "unknown")
+
         start = 0
 
         while start < len(text):
@@ -24,13 +32,17 @@ def chunk_records(
             chunk_text = text[start:end].strip()
 
             if chunk_text:
+                chunk_index = source_counters.get(source, 0)
+
                 chunks.append({
                     **record,
                     "text": chunk_text,
-                    "chunk_index": len(chunks),
+                    "chunk_index": chunk_index,
                     "start_char": start,
                     "end_char": end,
                 })
+
+                source_counters[source] = chunk_index + 1
 
             if end == len(text):
                 break

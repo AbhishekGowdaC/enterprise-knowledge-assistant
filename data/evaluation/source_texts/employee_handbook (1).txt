@@ -1,0 +1,111 @@
+--- Page 1 ---
+Contoso Ltd. | Employee Handbook | Internal Use
+Page 1
+ Employee Handbook
+ Contoso Ltd.  |  Version 3.2 | Effective January 1, 2026  |  Synthetic sample document for
+ testing
+1. Introduction
+This handbook describes the working arrangements, leave entitlements, and standards of conduct
+that apply to all full-time employees of Contoso Ltd. Part-time employees receive leave on a
+pro-rated basis. Questions about this handbook should be sent to the Human Resources (HR)
+team at hr@contoso.example.
+2. Working Hours
+The standard working week is 40 hours, Monday to Friday. Standard working hours are 9:00 AM to
+5:30 PM, which includes an unpaid lunch break of 30 minutes. Core hours, during which
+employees are expected to be available for meetings, are 10:00 AM to 4:00 PM.
+Contoso operates a hybrid model. Employees are expected to work from the office on Tuesday,
+Wednesday, and Thursday. Monday and Friday are remote working days unless the employee's
+manager requests otherwise. Flexible start times between 8:00 AM and 10:00 AM are allowed,
+provided the employee completes a full working day and is available during core hours.
+Overtime must be approved in advance by the employee's line manager. Approved overtime is
+compensated with time off in lieu at a rate of 1 hour for each hour worked. It is not paid in cash.
+3. Attendance and Punctuality
+-
+Employees who will be late or absent must notify their line manager by 9:30 AM on the day, by
+phone or chat message.
+-
+Three or more unexcused absences within a rolling 12-month period lead to a formal written
+warning.
+-
+Repeated lateness (more than 5 late arrivals in a calendar month) will be discussed in a
+one-to-one meeting with the line manager.
+4. Annual Leave
+Annual leave is the paid time off that employees take for vacation and personal reasons. The
+yearly entitlement depends on length of service:
+-
+Less than 3 years: 20 working days per year
+-
+3 to 5 years: 23 working days per year
+-
+6 or more years: 25 working days per year
+
+
+--- Page 2 ---
+Contoso Ltd. | Employee Handbook | Internal Use
+Page 2
+The leave year runs from January 1 to December 31. Employees may carry over a maximum of 5
+unused annual leave days into the next year. Carried-over days must be used by March 31, or
+they are forfeited. Unused leave is not paid out except when employment ends.
+How to request annual leave
+-
+Submit the request through the HR Portal under 'Time Off'.
+-
+Requests for 5 or more consecutive days must be submitted at least 10 working days in
+advance.
+-
+Requests for fewer than 5 days must be submitted at least 3 working days in advance.
+-
+Annual leave is approved by the employee's line manager. Managers respond within 3 working
+days.
+5. Sick Leave
+Every full-time employee receives 10 paid sick leave days per calendar year. Sick leave days do
+not carry over to the following year. Employees must notify their line manager before 9:30 AM on
+the first day of illness.
+A medical certificate from a licensed doctor is required when sick leave lasts 3 or more
+consecutive working days. Sick leave is separate from annual leave and cannot be deducted from
+the annual leave balance. If an employee exhausts the 10 paid sick days, further absence is
+unpaid unless HR approves an exception.
+6. Other Types of Leave
+-
+Parental leave (primary caregiver): 16 weeks paid. Notify HR at least 8 weeks before the
+expected start date
+-
+Parental leave (secondary caregiver): 6 weeks paid. Must be taken within 12 months of the
+birth or adoption
+-
+Bereavement leave: 5 days (immediate family) or 3 days (extended family). Immediate family
+means spouse, partner, child, parent, or sibling
+-
+Marriage leave: 3 days paid. Taken once during employment
+-
+Volunteer day: 1 day per year. Must be approved by the line manager
+7. Public Holidays
+Contoso observes 12 paid public holidays each year: New Year's Day, Martin Luther King Jr. Day,
+Presidents' Day, Memorial Day, Juneteenth, Independence Day, Labor Day, Thanksgiving Day,
+the day after Thanksgiving, Christmas Eve, Christmas Day, and New Year's Eve. Public holidays
+are not deducted from annual leave. The company is closed on these days.
+
+
+--- Page 3 ---
+Contoso Ltd. | Employee Handbook | Internal Use
+Page 3
+8. Code of Conduct
+-
+Treat colleagues, customers, and partners with respect. Harassment, discrimination, and
+bullying are not tolerated and may lead to dismissal.
+-
+Declare any conflict of interest to your line manager and HR in writing.
+-
+Gifts from vendors or customers worth more than $50 must be declared to HR and may not be
+accepted without approval.
+-
+Business casual dress is expected in the office; client-facing days may require business formal
+dress.
+-
+Employees must not use company resources for personal commercial activity.
+9. Raising Concerns
+Employees who experience or witness misconduct should first speak with their line manager or
+HR. Concerns may also be reported anonymously through the Ethics Hotline at 1-800-555-0142.
+Contoso prohibits retaliation against anyone who reports a concern in good faith. HR
+acknowledges every formal complaint within 5 working days and aims to complete investigations
+within 30 days.

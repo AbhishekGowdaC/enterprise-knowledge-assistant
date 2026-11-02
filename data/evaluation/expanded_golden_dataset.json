@@ -1,0 +1,1001 @@
+{
+  "dataset_name": "Expanded Enterprise Knowledge Assistant Evaluation Dataset",
+  "version": "1.0",
+  "corpus": {
+    "collection": "enterprise_documents_expanded",
+    "documents": 15,
+    "chunks": 93,
+    "note": "Synthetic Contoso portfolio policies; not real company policy."
+  },
+  "summary": {
+    "total_questions": 78,
+    "answerable": 63,
+    "unanswerable": 15
+  },
+  "questions": [
+    {
+      "id": "EXP-A-001",
+      "question": "How often must departmental continuity plans be reviewed?",
+      "answerable": true,
+      "expected_answer": "At least annually and whenever a material operational or technology change occurs.",
+      "relevant_chunks": [
+        {
+          "source": "business_continuity_policy.html",
+          "chunk_index": 1
+        }
+      ],
+      "question_type": "direct"
+    },
+    {
+      "id": "EXP-A-002",
+      "question": "What recovery time objective is recommended for critical customer-facing services?",
+      "answerable": true,
+      "expected_answer": "Four hours or less.",
+      "relevant_chunks": [
+        {
+          "source": "business_continuity_policy.html",
+          "chunk_index": 1
+        }
+      ],
+      "question_type": "numeric"
+    },
+    {
+      "id": "EXP-A-003",
+      "question": "How often must recovery tests for critical systems be performed?",
+      "answerable": true,
+      "expected_answer": "At least twice per year.",
+      "relevant_chunks": [
+        {
+          "source": "business_continuity_policy.html",
+          "chunk_index": 3
+        }
+      ],
+      "question_type": "numeric"
+    },
+    {
+      "id": "EXP-A-004",
+      "question": "Who must review customer notifications before they are distributed?",
+      "answerable": true,
+      "expected_answer": "Legal, Communications, and the accountable business owner.",
+      "relevant_chunks": [
+        {
+          "source": "business_continuity_policy.html",
+          "chunk_index": 4
+        }
+      ],
+      "question_type": "direct"
+    },
+    {
+      "id": "EXP-A-005",
+      "question": "How long are customer support records retained after a case closes?",
+      "answerable": true,
+      "expected_answer": "Three years after the support case is closed, unless a legal hold or contract requires a different period.",
+      "relevant_chunks": [
+        {
+          "source": "data_privacy_policy.html",
+          "chunk_index": 2
+        }
+      ],
+      "question_type": "numeric"
+    },
+    {
+      "id": "EXP-A-006",
+      "question": "When must a suspected privacy incident be reported?",
+      "answerable": true,
+      "expected_answer": "Within one hour of discovery.",
+      "relevant_chunks": [
+        {
+          "source": "data_privacy_policy.html",
+          "chunk_index": 4
+        }
+      ],
+      "question_type": "numeric"
+    },
+    {
+      "id": "EXP-A-007",
+      "question": "Who approves cross-border transfers of personal data?",
+      "answerable": true,
+      "expected_answer": "The Privacy Office, after review of applicable contractual and legal safeguards.",
+      "relevant_chunks": [
+        {
+          "source": "data_privacy_policy.html",
+          "chunk_index": 3
+        }
+      ],
+      "question_type": "direct"
+    },
+    {
+      "id": "EXP-A-008",
+      "question": "How quickly must requests to access, correct, or delete personal information be forwarded?",
+      "answerable": true,
+      "expected_answer": "Within one business day.",
+      "relevant_chunks": [
+        {
+          "source": "data_privacy_policy.html",
+          "chunk_index": 5
+        }
+      ],
+      "question_type": "numeric"
+    },
+    {
+      "id": "EXP-A-009",
+      "question": "After how many calendar days of employment may eligible full-time employees enroll in the group medical plan?",
+      "answerable": true,
+      "expected_answer": "After completing 30 calendar days of employment.",
+      "relevant_chunks": [
+        {
+          "source": "employee_benefits_policy.html",
+          "chunk_index": 0
+        }
+      ],
+      "question_type": "numeric"
+    },
+    {
+      "id": "EXP-A-010",
+      "question": "How many days do new employees have to submit benefit enrollment selections after their eligibility date?",
+      "answerable": true,
+      "expected_answer": "15 calendar days.",
+      "relevant_chunks": [
+        {
+          "source": "employee_benefits_policy.html",
+          "chunk_index": 1
+        }
+      ],
+      "question_type": "numeric"
+    },
+    {
+      "id": "EXP-A-011",
+      "question": "How many confidential wellness counselling sessions may an employee access per calendar year?",
+      "answerable": true,
+      "expected_answer": "Up to four sessions.",
+      "relevant_chunks": [
+        {
+          "source": "employee_benefits_policy.html",
+          "chunk_index": 2
+        }
+      ],
+      "question_type": "numeric"
+    },
+    {
+      "id": "EXP-A-012",
+      "question": "What is the normal deadline for submitting medical reimbursement claims after discharge or outpatient treatment?",
+      "answerable": true,
+      "expected_answer": "Within 45 calendar days.",
+      "relevant_chunks": [
+        {
+          "source": "employee_benefits_policy.html",
+          "chunk_index": 3
+        }
+      ],
+      "question_type": "numeric"
+    },
+    {
+      "id": "EXP-A-013",
+      "question": "How many annual leave days does an employee with 4 years of service receive?",
+      "answerable": true,
+      "expected_answer": "23 working days per year.",
+      "relevant_chunks": [
+        {
+          "source": "employee_handbook (1).pdf",
+          "chunk_index": 2
+        }
+      ],
+      "question_type": "numeric"
+    },
+    {
+      "id": "EXP-A-014",
+      "question": "How far in advance must a request for at least five consecutive annual leave days be submitted?",
+      "answerable": true,
+      "expected_answer": "At least 10 working days in advance.",
+      "relevant_chunks": [
+        {
+          "source": "employee_handbook (1).pdf",
+          "chunk_index": 3
+        }
+      ],
+      "question_type": "numeric"
+    },
+    {
+      "id": "EXP-A-015",
+      "question": "How many paid sick leave days does a full-time employee receive each calendar year?",
+      "answerable": true,
+      "expected_answer": "10 paid sick leave days.",
+      "relevant_chunks": [
+        {
+          "source": "employee_handbook (1).pdf",
+          "chunk_index": 4
+        }
+      ],
+      "question_type": "numeric"
+    },
+    {
+      "id": "EXP-A-016",
+      "question": "How much paid parental leave is available to a primary caregiver?",
+      "answerable": true,
+      "expected_answer": "16 weeks paid. HR must be notified at least 8 weeks before the expected start date.",
+      "relevant_chunks": [
+        {
+          "source": "employee_handbook (1).pdf",
+          "chunk_index": 4
+        }
+      ],
+      "question_type": "direct"
+    },
+    {
+      "id": "EXP-A-017",
+      "question": "What is the company rule for vendor gifts worth more than $50?",
+      "answerable": true,
+      "expected_answer": "They must be declared to HR and may not be accepted without approval.",
+      "relevant_chunks": [
+        {
+          "source": "employee_handbook (1).pdf",
+          "chunk_index": 6
+        }
+      ],
+      "question_type": "numeric"
+    },
+    {
+      "id": "EXP-A-018",
+      "question": "Which approval is required for an expense of $1,800?",
+      "answerable": true,
+      "expected_answer": "Department Director approval.",
+      "relevant_chunks": [
+        {
+          "source": "finance_reimbursement_policy.html",
+          "chunk_index": 1
+        }
+      ],
+      "question_type": "numeric"
+    },
+    {
+      "id": "EXP-A-019",
+      "question": "Within how many calendar days should employees normally submit expense reports?",
+      "answerable": true,
+      "expected_answer": "Within 30 calendar days after the transaction date or completion of the business trip, whichever occurs later.",
+      "relevant_chunks": [
+        {
+          "source": "finance_reimbursement_policy.html",
+          "chunk_index": 2
+        }
+      ],
+      "question_type": "numeric"
+    },
+    {
+      "id": "EXP-A-020",
+      "question": "At what individual expense amount is an itemized receipt required?",
+      "answerable": true,
+      "expected_answer": "For individual expenses of $25 or more.",
+      "relevant_chunks": [
+        {
+          "source": "finance_reimbursement_policy.html",
+          "chunk_index": 3
+        }
+      ],
+      "question_type": "numeric"
+    },
+    {
+      "id": "EXP-A-021",
+      "question": "How often does the normal reimbursement payment cycle run?",
+      "answerable": true,
+      "expected_answer": "Twice per month.",
+      "relevant_chunks": [
+        {
+          "source": "finance_reimbursement_policy.html",
+          "chunk_index": 4
+        }
+      ],
+      "question_type": "direct"
+    },
+    {
+      "id": "EXP-A-022",
+      "question": "What equipment is included in a standard engineering workstation?",
+      "answerable": true,
+      "expected_answer": "One managed laptop, one external monitor, a keyboard, a mouse, and an approved headset.",
+      "relevant_chunks": [
+        {
+          "source": "hardware_equipment_policy.html",
+          "chunk_index": 0
+        }
+      ],
+      "question_type": "list"
+    },
+    {
+      "id": "EXP-A-023",
+      "question": "How quickly must a lost or stolen company device be reported to IT Security?",
+      "answerable": true,
+      "expected_answer": "Within one hour of discovery.",
+      "relevant_chunks": [
+        {
+          "source": "hardware_equipment_policy.html",
+          "chunk_index": 2
+        },
+        {
+          "source": "hardware_equipment_policy.html",
+          "chunk_index": 3
+        }
+      ],
+      "question_type": "numeric"
+    },
+    {
+      "id": "EXP-A-024",
+      "question": "When may IT Support issue a loan device?",
+      "answerable": true,
+      "expected_answer": "When the primary device cannot be used for more than one business day and suitable stock is available.",
+      "relevant_chunks": [
+        {
+          "source": "hardware_equipment_policy.html",
+          "chunk_index": 3
+        }
+      ],
+      "question_type": "direct"
+    },
+    {
+      "id": "EXP-A-025",
+      "question": "When must employees normally return assigned devices and accessories?",
+      "answerable": true,
+      "expected_answer": "On their final working day, unless HR approves another date.",
+      "relevant_chunks": [
+        {
+          "source": "hardware_equipment_policy.html",
+          "chunk_index": 4
+        }
+      ],
+      "question_type": "direct"
+    },
+    {
+      "id": "EXP-A-026",
+      "question": "What is the minimum password length?",
+      "answerable": true,
+      "expected_answer": "At least 14 characters, or a passphrase of four or more unrelated words.",
+      "relevant_chunks": [
+        {
+          "source": "it_security_policy.pdf",
+          "chunk_index": 0
+        },
+        {
+          "source": "it_security_policy.pdf",
+          "chunk_index": 1
+        }
+      ],
+      "question_type": "numeric"
+    },
+    {
+      "id": "EXP-A-027",
+      "question": "After how many failed login attempts is an account locked, and for how long?",
+      "answerable": true,
+      "expected_answer": "After 5 failed attempts, the account is locked for 30 minutes.",
+      "relevant_chunks": [
+        {
+          "source": "it_security_policy.pdf",
+          "chunk_index": 1
+        }
+      ],
+      "question_type": "numeric"
+    },
+    {
+      "id": "EXP-A-028",
+      "question": "Which MFA method is approved, and are SMS codes permitted?",
+      "answerable": true,
+      "expected_answer": "The Contoso Authenticator mobile app is approved; SMS-based codes are not permitted.",
+      "relevant_chunks": [
+        {
+          "source": "it_security_policy.pdf",
+          "chunk_index": 1
+        },
+        {
+          "source": "it_security_policy.pdf",
+          "chunk_index": 2
+        }
+      ],
+      "question_type": "direct"
+    },
+    {
+      "id": "EXP-A-029",
+      "question": "How often are access rights reviewed?",
+      "answerable": true,
+      "expected_answer": "Every quarter.",
+      "relevant_chunks": [
+        {
+          "source": "it_security_policy.pdf",
+          "chunk_index": 3
+        }
+      ],
+      "question_type": "numeric"
+    },
+    {
+      "id": "EXP-A-030",
+      "question": "After how many calendar days of employment may a regular full-time employee request role-related external training?",
+      "answerable": true,
+      "expected_answer": "After completing 90 calendar days of employment.",
+      "relevant_chunks": [
+        {
+          "source": "learning_development_policy.html",
+          "chunk_index": 0
+        }
+      ],
+      "question_type": "numeric"
+    },
+    {
+      "id": "EXP-A-031",
+      "question": "What is the standard annual professional development funding limit per eligible employee?",
+      "answerable": true,
+      "expected_answer": "Up to $1,200 per calendar year.",
+      "relevant_chunks": [
+        {
+          "source": "learning_development_policy.html",
+          "chunk_index": 1
+        }
+      ],
+      "question_type": "numeric"
+    },
+    {
+      "id": "EXP-A-032",
+      "question": "How far ahead must an employee submit a training request?",
+      "answerable": true,
+      "expected_answer": "At least 15 business days before the course start date.",
+      "relevant_chunks": [
+        {
+          "source": "learning_development_policy.html",
+          "chunk_index": 2
+        }
+      ],
+      "question_type": "numeric"
+    },
+    {
+      "id": "EXP-A-033",
+      "question": "How soon after a course ends must a completion certificate or attendance record be uploaded?",
+      "answerable": true,
+      "expected_answer": "Within ten business days.",
+      "relevant_chunks": [
+        {
+          "source": "learning_development_policy.html",
+          "chunk_index": 2
+        },
+        {
+          "source": "learning_development_policy.html",
+          "chunk_index": 3
+        }
+      ],
+      "question_type": "numeric"
+    },
+    {
+      "id": "EXP-A-034",
+      "question": "How often should managers hold one-to-one performance discussions?",
+      "answerable": true,
+      "expected_answer": "At least once every calendar month.",
+      "relevant_chunks": [
+        {
+          "source": "performance_appraisal_policy.html",
+          "chunk_index": 1
+        }
+      ],
+      "question_type": "numeric"
+    },
+    {
+      "id": "EXP-A-035",
+      "question": "In which months are formal performance reviews normally conducted?",
+      "answerable": true,
+      "expected_answer": "June and December.",
+      "relevant_chunks": [
+        {
+          "source": "performance_appraisal_policy.html",
+          "chunk_index": 2
+        }
+      ],
+      "question_type": "numeric"
+    },
+    {
+      "id": "EXP-A-036",
+      "question": "What does a performance rating of 3 mean?",
+      "answerable": true,
+      "expected_answer": "Performance met the agreed requirements and demonstrated the expected level of role competence.",
+      "relevant_chunks": [
+        {
+          "source": "performance_appraisal_policy.html",
+          "chunk_index": 2
+        },
+        {
+          "source": "performance_appraisal_policy.html",
+          "chunk_index": 3
+        }
+      ],
+      "question_type": "direct"
+    },
+    {
+      "id": "EXP-A-037",
+      "question": "What is the normal duration of a formal performance improvement plan?",
+      "answerable": true,
+      "expected_answer": "60 calendar days, although HR may approve a different period.",
+      "relevant_chunks": [
+        {
+          "source": "performance_appraisal_policy.html",
+          "chunk_index": 3
+        }
+      ],
+      "question_type": "numeric"
+    },
+    {
+      "id": "EXP-A-038",
+      "question": "Which approval is required for a purchase costing $12,000?",
+      "answerable": true,
+      "expected_answer": "Procurement Director approval.",
+      "relevant_chunks": [
+        {
+          "source": "procurement_policy.html",
+          "chunk_index": 1
+        }
+      ],
+      "question_type": "numeric"
+    },
+    {
+      "id": "EXP-A-039",
+      "question": "How many vendor quotations are normally required for purchases above $5,000?",
+      "answerable": true,
+      "expected_answer": "At least three written quotations, unless an approved exception applies.",
+      "relevant_chunks": [
+        {
+          "source": "procurement_policy.html",
+          "chunk_index": 2
+        }
+      ],
+      "question_type": "numeric"
+    },
+    {
+      "id": "EXP-A-040",
+      "question": "Who is authorized to issue an official company purchase order?",
+      "answerable": true,
+      "expected_answer": "Only Procurement.",
+      "relevant_chunks": [
+        {
+          "source": "procurement_policy.html",
+          "chunk_index": 3
+        }
+      ],
+      "question_type": "direct"
+    },
+    {
+      "id": "EXP-A-041",
+      "question": "How long must procurement bid documents and related records be retained?",
+      "answerable": true,
+      "expected_answer": "At least seven years.",
+      "relevant_chunks": [
+        {
+          "source": "procurement_policy.html",
+          "chunk_index": 5
+        }
+      ],
+      "question_type": "numeric"
+    },
+    {
+      "id": "EXP-A-042",
+      "question": "What approvals are required before an employment offer is sent?",
+      "answerable": true,
+      "expected_answer": "Approval from the hiring manager and the authorized HR compensation representative.",
+      "relevant_chunks": [
+        {
+          "source": "recruitment_onboarding_policy.html",
+          "chunk_index": 2
+        }
+      ],
+      "question_type": "direct"
+    },
+    {
+      "id": "EXP-A-043",
+      "question": "How many authorized interviewers should participate in the final assessment for regular full-time positions?",
+      "answerable": true,
+      "expected_answer": "At least two.",
+      "relevant_chunks": [
+        {
+          "source": "recruitment_onboarding_policy.html",
+          "chunk_index": 1
+        }
+      ],
+      "question_type": "numeric"
+    },
+    {
+      "id": "EXP-A-044",
+      "question": "How many business days before joining should equipment and system access requests be submitted?",
+      "answerable": true,
+      "expected_answer": "At least five business days before the joining date.",
+      "relevant_chunks": [
+        {
+          "source": "recruitment_onboarding_policy.html",
+          "chunk_index": 3
+        }
+      ],
+      "question_type": "numeric"
+    },
+    {
+      "id": "EXP-A-045",
+      "question": "What is the standard probation period for regular new employees?",
+      "answerable": true,
+      "expected_answer": "90 calendar days, unless the employment agreement specifies another duration.",
+      "relevant_chunks": [
+        {
+          "source": "recruitment_onboarding_policy.html",
+          "chunk_index": 4
+        }
+      ],
+      "question_type": "numeric"
+    },
+    {
+      "id": "EXP-A-046",
+      "question": "When may an employee request a regular remote work arrangement under the policy?",
+      "answerable": true,
+      "expected_answer": "After completing the initial 90-day probation period, subject to role requirements and manager approval.",
+      "relevant_chunks": [
+        {
+          "source": "remote_work_policy.html",
+          "chunk_index": 0
+        }
+      ],
+      "question_type": "numeric"
+    },
+    {
+      "id": "EXP-A-047",
+      "question": "When should hybrid employees record their planned office and remote days?",
+      "answerable": true,
+      "expected_answer": "By the final working day of the preceding week.",
+      "relevant_chunks": [
+        {
+          "source": "remote_work_policy.html",
+          "chunk_index": 1
+        }
+      ],
+      "question_type": "direct"
+    },
+    {
+      "id": "EXP-A-048",
+      "question": "How long may a line manager approve temporary remote work outside the normal schedule?",
+      "answerable": true,
+      "expected_answer": "Up to five consecutive working days.",
+      "relevant_chunks": [
+        {
+          "source": "remote_work_policy.html",
+          "chunk_index": 2
+        }
+      ],
+      "question_type": "numeric"
+    },
+    {
+      "id": "EXP-A-049",
+      "question": "How often may managers review remote work arrangements?",
+      "answerable": true,
+      "expected_answer": "Every six months.",
+      "relevant_chunks": [
+        {
+          "source": "remote_work_policy.html",
+          "chunk_index": 4
+        },
+        {
+          "source": "remote_work_policy.html",
+          "chunk_index": 5
+        }
+      ],
+      "question_type": "numeric"
+    },
+    {
+      "id": "EXP-A-050",
+      "question": "How many days before departure should business travel be booked whenever possible?",
+      "answerable": true,
+      "expected_answer": "At least 14 days before departure.",
+      "relevant_chunks": [
+        {
+          "source": "travel_expense_policy.pdf",
+          "chunk_index": 1
+        }
+      ],
+      "question_type": "numeric"
+    },
+    {
+      "id": "EXP-A-051",
+      "question": "What is the required flight class for flights shorter than six hours?",
+      "answerable": true,
+      "expected_answer": "Economy class.",
+      "relevant_chunks": [
+        {
+          "source": "travel_expense_policy.pdf",
+          "chunk_index": 1
+        }
+      ],
+      "question_type": "direct"
+    },
+    {
+      "id": "EXP-A-052",
+      "question": "What is the nightly hotel limit in a high-cost city?",
+      "answerable": true,
+      "expected_answer": "$275 per night.",
+      "relevant_chunks": [
+        {
+          "source": "travel_expense_policy.pdf",
+          "chunk_index": 2
+        }
+      ],
+      "question_type": "numeric"
+    },
+    {
+      "id": "EXP-A-053",
+      "question": "What is the maximum daily meal allowance?",
+      "answerable": true,
+      "expected_answer": "$75 per day in total: breakfast $15, lunch $20, and dinner $40.",
+      "relevant_chunks": [
+        {
+          "source": "travel_expense_policy.pdf",
+          "chunk_index": 3
+        }
+      ],
+      "question_type": "numeric"
+    },
+    {
+      "id": "EXP-A-054",
+      "question": "Within how many business days are approved travel expenses paid?",
+      "answerable": true,
+      "expected_answer": "Within 10 business days of approval.",
+      "relevant_chunks": [
+        {
+          "source": "travel_expense_policy.pdf",
+          "chunk_index": 3
+        },
+        {
+          "source": "travel_expense_policy.pdf",
+          "chunk_index": 4
+        }
+      ],
+      "question_type": "numeric"
+    },
+    {
+      "id": "EXP-A-055",
+      "question": "How much cash advance may be requested for an international trip?",
+      "answerable": true,
+      "expected_answer": "Up to $500, requested at least 10 business days before departure; it must be settled within 15 days of returning.",
+      "relevant_chunks": [
+        {
+          "source": "travel_expense_policy.pdf",
+          "chunk_index": 6
+        }
+      ],
+      "question_type": "numeric"
+    },
+    {
+      "id": "EXP-A-056",
+      "question": "What assessments are required before contract signature for a vendor processing confidential data?",
+      "answerable": true,
+      "expected_answer": "An information security assessment is required. If the vendor handles personal data, it must also complete the privacy questionnaire and accept applicable data-processing obligations.",
+      "relevant_chunks": [
+        {
+          "source": "vendor_management_policy.html",
+          "chunk_index": 1
+        }
+      ],
+      "question_type": "multi"
+    },
+    {
+      "id": "EXP-A-057",
+      "question": "How often should business owners review critical vendor performance?",
+      "answerable": true,
+      "expected_answer": "At least quarterly.",
+      "relevant_chunks": [
+        {
+          "source": "vendor_management_policy.html",
+          "chunk_index": 2
+        },
+        {
+          "source": "vendor_management_policy.html",
+          "chunk_index": 3
+        }
+      ],
+      "question_type": "numeric"
+    },
+    {
+      "id": "EXP-A-058",
+      "question": "When must vendor system accounts be disabled after contract completion or removal of access need?",
+      "answerable": true,
+      "expected_answer": "Within one business day.",
+      "relevant_chunks": [
+        {
+          "source": "vendor_management_policy.html",
+          "chunk_index": 3
+        },
+        {
+          "source": "vendor_management_policy.html",
+          "chunk_index": 4
+        }
+      ],
+      "question_type": "numeric"
+    },
+    {
+      "id": "EXP-A-059",
+      "question": "How long does Procurement retain vendor contracts and related risk and performance records?",
+      "answerable": true,
+      "expected_answer": "Seven years.",
+      "relevant_chunks": [
+        {
+          "source": "vendor_management_policy.html",
+          "chunk_index": 4
+        }
+      ],
+      "question_type": "numeric"
+    },
+    {
+      "id": "EXP-A-060",
+      "question": "Who should receive a report when an employee discovers a workplace hazard?",
+      "answerable": true,
+      "expected_answer": "Facilities. A high-risk hazard involving immediate danger should be reported to site security or emergency services without waiting for a routine Facilities ticket.",
+      "relevant_chunks": [
+        {
+          "source": "workplace_safety_policy.html",
+          "chunk_index": 1
+        }
+      ],
+      "question_type": "direct"
+    },
+    {
+      "id": "EXP-A-061",
+      "question": "How quickly must workplace injuries, near misses, and property damage be reported?",
+      "answerable": true,
+      "expected_answer": "Within one hour of discovery, to the manager and Facilities.",
+      "relevant_chunks": [
+        {
+          "source": "workplace_safety_policy.html",
+          "chunk_index": 2
+        }
+      ],
+      "question_type": "numeric"
+    },
+    {
+      "id": "EXP-A-062",
+      "question": "May employees use elevators during a fire evacuation?",
+      "answerable": true,
+      "expected_answer": "No, unless the building\u2019s approved emergency procedure specifically permits it.",
+      "relevant_chunks": [
+        {
+          "source": "workplace_safety_policy.html",
+          "chunk_index": 3
+        }
+      ],
+      "question_type": "direct"
+    },
+    {
+      "id": "EXP-A-063",
+      "question": "How often should workplace safety inspections occur?",
+      "answerable": true,
+      "expected_answer": "Quarterly.",
+      "relevant_chunks": [
+        {
+          "source": "workplace_safety_policy.html",
+          "chunk_index": 4
+        },
+        {
+          "source": "workplace_safety_policy.html",
+          "chunk_index": 5
+        }
+      ],
+      "question_type": "numeric"
+    },
+    {
+      "id": "EXP-U-001",
+      "question": "What is the company\u2019s annual bonus percentage for employees rated exceptional?",
+      "answerable": false,
+      "expected_answer": null,
+      "relevant_chunks": [],
+      "question_type": "unanswerable"
+    },
+    {
+      "id": "EXP-U-002",
+      "question": "How many annual leave days are granted to employees after 10 years of service?",
+      "answerable": true,
+      "expected_answer": "25 working days per year.",
+      "relevant_chunks": [
+        {
+          "source": "employee_handbook (1).pdf",
+          "chunk_index": 2
+        }
+      ],
+      "question_type": "answerable"
+    },
+    {
+      "id": "EXP-U-003",
+      "question": "Which hospital network is covered by the employee medical insurance plan?",
+      "answerable": false,
+      "expected_answer": null,
+      "relevant_chunks": [],
+      "question_type": "unanswerable"
+    },
+    {
+      "id": "EXP-U-004",
+      "question": "What is the exact monthly home internet reimbursement amount?",
+      "answerable": false,
+      "expected_answer": null,
+      "relevant_chunks": [],
+      "question_type": "unanswerable"
+    },
+    {
+      "id": "EXP-U-005",
+      "question": "What is the company\u2019s annual salary increase percentage?",
+      "answerable": false,
+      "expected_answer": null,
+      "relevant_chunks": [],
+      "question_type": "unanswerable"
+    },
+    {
+      "id": "EXP-U-006",
+      "question": "Which cloud provider hosts the company\u2019s production systems?",
+      "answerable": false,
+      "expected_answer": null,
+      "relevant_chunks": [],
+      "question_type": "unanswerable"
+    },
+    {
+      "id": "EXP-U-007",
+      "question": "What is the maximum age limit for dependent children under the medical plan?",
+      "answerable": false,
+      "expected_answer": null,
+      "relevant_chunks": [],
+      "question_type": "unanswerable"
+    },
+    {
+      "id": "EXP-U-008",
+      "question": "Is there any additional paid paternity leave for secondary caregivers beyond the six weeks of paid parental leave?",
+      "answerable": false,
+      "expected_answer": null,
+      "relevant_chunks": [],
+      "question_type": "unanswerable"
+    },
+    {
+      "id": "EXP-U-009",
+      "question": "What is the company\u2019s official office address?",
+      "answerable": false,
+      "expected_answer": null,
+      "relevant_chunks": [],
+      "question_type": "unanswerable"
+    },
+    {
+      "id": "EXP-U-010",
+      "question": "Which specific vendor is approved to provide cybersecurity services?",
+      "answerable": false,
+      "expected_answer": null,
+      "relevant_chunks": [],
+      "question_type": "unanswerable"
+    },
+    {
+      "id": "EXP-U-011",
+      "question": "What is the exact number of employees currently working at Contoso?",
+      "answerable": false,
+      "expected_answer": null,
+      "relevant_chunks": [],
+      "question_type": "unanswerable"
+    },
+    {
+      "id": "EXP-U-012",
+      "question": "What is the annual budget allocated to each department for procurement?",
+      "answerable": false,
+      "expected_answer": null,
+      "relevant_chunks": [],
+      "question_type": "unanswerable"
+    },
+    {
+      "id": "EXP-U-013",
+      "question": "What is the company\u2019s stock ticker symbol?",
+      "answerable": false,
+      "expected_answer": null,
+      "relevant_chunks": [],
+      "question_type": "unanswerable"
+    },
+    {
+      "id": "EXP-U-014",
+      "question": "How many interview rounds are mandatory for every engineering role?",
+      "answerable": false,
+      "expected_answer": null,
+      "relevant_chunks": [],
+      "question_type": "unanswerable"
+    },
+    {
+      "id": "EXP-U-015",
+      "question": "What is the exact date of the next company-wide town hall?",
+      "answerable": false,
+      "expected_answer": null,
+      "relevant_chunks": [],
+      "question_type": "unanswerable"
+    }
+  ]
+}

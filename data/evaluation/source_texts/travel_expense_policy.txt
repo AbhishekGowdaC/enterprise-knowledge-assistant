@@ -1,0 +1,107 @@
+--- Page 1 ---
+Contoso Ltd. | Travel and Expense Policy | Internal Use
+Page 1
+ Travel and Expense Policy
+ Contoso Ltd.  |  Version 1.8 | Effective February 1, 2026  |  Synthetic sample document for
+ testing
+1. Purpose
+This policy explains how business travel is approved, booked, and reimbursed at Contoso Ltd.
+Employees are expected to spend company money responsibly and to choose reasonable,
+cost-effective options. Questions can be sent to the Finance team at expenses@contoso.example.
+2. Travel Approval
+All business travel must be approved before any booking is made. Travel approval is separate
+from leave approval: leave is approved by the line manager through the HR Portal, whereas travel
+is approved based on total estimated trip cost as shown below.
+-
+Up to $1,500: Line manager
+-
+$1,501 to $5,000: Department Director
+-
+More than $5,000: Vice President (VP)
+-
+Any international trip: Department Director, plus VP approval if the cost exceeds $5,000
+Approval requests are submitted through the Travel Portal and receive a Travel Approval ID,
+which must be quoted on the expense report.
+3. Booking Travel
+-
+Book through the Contoso Travel Portal at least 14 days before departure whenever possible.
+-
+Economy class is required for flights shorter than 6 hours. Premium economy is allowed for
+flights of 6 hours or longer. Business class requires VP approval.
+-
+Rail travel is preferred over flying for trips under 300 miles.
+-
+Rental cars must be compact or mid-size unless more than three travelers share the vehicle.
+-
+Personal vehicle use is reimbursed at $0.65 per mile.
+4. Hotel Limits
+-
+Standard cities: $200 per night
+-
+High-cost cities (New York, San Francisco, London, Singapore): $275 per night
+Stays longer than 14 consecutive nights require Director approval and should be booked as
+extended-stay accommodation. Hotel upgrades, minibar charges, and in-room entertainment are
+not reimbursable.
+
+
+--- Page 2 ---
+Contoso Ltd. | Travel and Expense Policy | Internal Use
+Page 2
+5. Meal Allowances
+While traveling on company business, employees may claim actual meal costs up to the following
+daily maximums:
+-
+Breakfast: $15
+-
+Lunch: $20
+-
+Dinner: $40
+-
+Total per day: $75
+Alcohol is never reimbursable. Meals provided by a hotel, conference, or client must not be
+claimed again. Client entertainment meals require the names and companies of attendees and the
+business purpose, and are not subject to the daily allowance but need line manager approval.
+6. Reimbursement Process
+Deadlines
+-
+Expense reports must be submitted within 30 days of the end of the trip. Reports submitted
+after 60 days will not be reimbursed.
+-
+Approved expenses are paid within 10 business days of approval, directly to the employee's
+payroll bank account.
+Documents required for reimbursement
+-
+A completed expense report in the Expense Portal.
+-
+An itemized receipt for every expense of $25 or more (credit card slips alone are not accepted).
+-
+The Travel Approval ID for the trip.
+-
+The business purpose for each expense.
+-
+For mileage claims: start and end locations and total miles driven.
+Expenses under $25 do not require a receipt but must still be listed on the expense report. If a
+receipt is lost, the employee must submit a Missing Receipt Form signed by their line manager.
+7. Non-Reimbursable Expenses
+-
+Alcohol, personal entertainment, and spouse or family travel costs.
+-
+Traffic and parking fines.
+-
+Airline seat upgrades, lounge memberships, and travel insurance not purchased through the
+Travel Portal.
+-
+Personal items, clothing, and grooming services.
+
+
+--- Page 3 ---
+Contoso Ltd. | Travel and Expense Policy | Internal Use
+Page 3
+8. Cash Advances and Corporate Cards
+Cash advances of up to $500 may be requested for international trips at least 10 business days
+before departure and must be settled within 15 days of returning. Employees who travel more than
+6 times per year may apply for a corporate credit card. Corporate card charges must still be
+itemized on an expense report within 30 days.
+9. Policy Violations
+Submitting false or inflated claims is a serious breach of the Employee Handbook code of conduct
+and may lead to disciplinary action, repayment of funds, and dismissal.

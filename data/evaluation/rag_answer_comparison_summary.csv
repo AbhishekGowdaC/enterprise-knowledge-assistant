@@ -1,0 +1,3 @@
+method,questions_in_run,successful_evaluations,generation_errors,answerable_questions_evaluated,mean_token_f1_non_abstained,expected_source_citation_rate,unanswerable_questions_evaluated,correct_abstention_rate,false_answer_rate
+dense,40,39,1,29,0.6172096363384568,1.0,10,1.0,0.0
+hybrid,40,40,0,30,0.6340993865789301,1.0,10,1.0,0.0
