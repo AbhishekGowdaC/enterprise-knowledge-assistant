@@ -18,6 +18,7 @@ from app.generation.answer import (
     retrieve_context,
     generate_answer,
 )
+from app.schemas.rag_response import RAGResponse
 from app.retrieval.hybrid_search import (
     load_chunks,
     dense_search,
@@ -195,12 +196,18 @@ def evaluate_one(item, method, model, client, groq_client, chunks, bm25):
         )
 
         if contexts:
-            answer = generate_answer(question, contexts, groq_client)
+            response = generate_answer(question, contexts, groq_client)
         else:
-            answer = ABSTENTION
+            response = RAGResponse(
+                answer=ABSTENTION,
+                citations=[],
+                is_answerable=False,
+            )
+
+        answer = response.answer
 
         row["answer"] = answer
-        row["abstained"] = is_abstention(answer)
+        row["abstained"] = not response.is_answerable
 
         if answerable:
             row["token_f1"] = (
@@ -209,7 +216,11 @@ def evaluate_one(item, method, model, client, groq_client, chunks, bm25):
                 else token_f1(expected_answer, answer)
             )
             row["expected_source_cited"] = (
-                bool(expected_source) and expected_source in answer
+                bool(expected_source)
+                and any(
+                    citation.source == expected_source
+                    for citation in response.citations
+                )
             )
 
     except Exception as exc:

@@ -15,6 +15,7 @@ from app.generation.answer import (
     MODEL_NAME,
     generate_answer,
 )
+from app.schemas.rag_response import RAGResponse
 from app.retrieval.router import RetrievalRouter
 
 
@@ -195,17 +196,22 @@ def main():
 
                 # Step 3: Generate an answer or abstain if context is empty.
                 if not context_parts:
-                    answer = ABSTENTION
+                    response = RAGResponse(
+                        answer=ABSTENTION,
+                        citations=[],
+                        is_answerable=False,
+                    )
                 else:
-                    answer = generate_answer(
+                    response = generate_answer(
                         question,
                         context_parts,
                         groq_client,
                     )
 
+                answer = response.answer
                 result["generated_answer"] = answer
 
-                is_abstention = answer.strip() == ABSTENTION
+                is_abstention = not response.is_answerable
 
                 if answerable:
                     if not is_abstention:
@@ -216,7 +222,7 @@ def main():
                 else:
                     result["correct_abstention"] = is_abstention
 
-                result["citation_count"] = citation_count(answer)
+                result["citation_count"] = len(response.citations)
 
                 status = (
                     "ABSTAINED"

@@ -16,6 +16,7 @@ from app.generation.answer import (
     retrieve_context,
     generate_answer,
 )
+from app.schemas.rag_response import RAGResponse
 
 
 BASE_DIR = Path(__file__).resolve().parents[3]
@@ -136,13 +137,19 @@ def main():
                     print("--- END MATERNITY RETRIEVED CONTEXT ---\n")
 
                 if not context_parts:
-                    answer = ABSTENTION
+                    response = RAGResponse(
+                        answer=ABSTENTION,
+                        citations=[],
+                        is_answerable=False,
+                    )
                 else:
-                    answer = generate_answer(
+                    response = generate_answer(
                         question,
                         context_parts,
                         groq_client,
                     )
+
+                answer = response.answer
 
             except Exception as exc:
                 generation_errors += 1
@@ -164,7 +171,11 @@ def main():
 
             abstained = is_abstention(answer)
             expected_source_cited = (
-                bool(expected_source) and expected_source in answer
+                bool(expected_source)
+                and any(
+                    citation.source == expected_source
+                    for citation in response.citations
+                )
             )
 
             print(f"Abstained: {abstained}")
