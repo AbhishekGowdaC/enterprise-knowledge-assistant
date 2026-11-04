@@ -12,6 +12,12 @@ class ChatRequest(BaseModel):
         description="Question about the indexed enterprise documents.",
     )
 
+    conversation_id: int | None = Field(
+        default=None,
+        gt=0,
+        description="Existing conversation ID, if continuing a conversation.",
+    )
+
     @field_validator("question")
     @classmethod
     def validate_question(cls, value: str) -> str:
