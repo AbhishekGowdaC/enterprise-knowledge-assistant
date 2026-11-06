@@ -1,5 +1,6 @@
 import logging
 
+logger = logging.getLogger(__name__)
 from fastapi import APIRouter, Depends, HTTPException, Request
 from sqlalchemy.orm import Session
 
@@ -9,6 +10,11 @@ from app.generation.answer import ABSTENTION, generate_answer
 from app.schemas.chat_request import ChatRequest
 from app.schemas.rag_response import RAGResponse
 from app.schemas.conversation import MessageResponse, ConversationResponse
+from app.exceptions.custom_exceptions import (
+    DatabaseUnavailableError,
+    VectorDatabaseUnavailableError,
+    LLMServiceUnavailableError,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -22,7 +28,7 @@ def chat(
     db: Session = Depends(get_db),
 ):
     """Answer a question using the enterprise RAG pipeline."""
-
+    logger.info("Received a new chat request")
     try:
         # 1. Create or retrieve conversation
         if payload.conversation_id is None:
@@ -56,6 +62,11 @@ def chat(
 
         context_parts = retriever.retrieve_context(payload.question)
 
+        logger.info(
+            "Document retrieval completed. Retrieved %d chunks",
+            len(context_parts),
+        )
+        
         if not context_parts:
             response = RAGResponse(
                 answer=ABSTENTION,
@@ -69,6 +80,10 @@ def chat(
                 groq_client,
             )
 
+        if context_parts:
+            logger.info("Answer generation completed successfully")
+        else:
+            logger.info("No relevant context found. Returning abstention response.")
         # 4. Save assistant response
         crud.create_message(
             db,
@@ -80,6 +95,15 @@ def chat(
         return response
 
     except HTTPException:
+        raise
+
+    except DatabaseUnavailableError:
+        raise
+
+    except VectorDatabaseUnavailableError:
+        raise
+
+    except LLMServiceUnavailableError:
         raise
 
     except Exception as exc:
@@ -97,17 +121,21 @@ def chat(
 )
 def get_conversation_messages(
     conversation_id: int,
-    db: Session = Depends(get_db)
+    db: Session = Depends(get_db),
 ):
+    """Retrieve messages for a conversation."""
+
     conversation = crud.get_conversation(db, conversation_id)
 
     if conversation is None:
         raise HTTPException(
             status_code=404,
-            detail="Conversation not found"
+            detail="Conversation not found.",
         )
 
     return crud.get_messages(db, conversation_id)
+
+
 @router.get(
     "/conversations",
     response_model=list[ConversationResponse],

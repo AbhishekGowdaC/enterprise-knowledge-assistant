@@ -5,13 +5,21 @@ import json
 from pathlib import Path
 
 from dotenv import load_dotenv
-from groq import Groq
+from groq import (
+    Groq,
+    APIConnectionError,
+    RateLimitError,
+    InternalServerError,
+    AuthenticationError,
+)
 from qdrant_client import QdrantClient
 from sentence_transformers import SentenceTransformer
 from app.retrieval.router import RetrievalRouter
 from app.schemas.rag_response import Citation, RAGResponse
-
-
+from app.exceptions.custom_exceptions import (
+    LLMServiceUnavailableError,
+    LLMConfigurationError,
+)
 # Load environment variables from project root
 BASE_DIR = Path(__file__).resolve().parents[3]
 load_dotenv(BASE_DIR / ".env")
@@ -184,19 +192,32 @@ USER QUESTION:
 {question}
 """
 
-    response = groq_client.chat.completions.create(
-        model=MODEL_NAME,
-        messages=[
-            {
-                "role": "user",
-                "content": prompt,
-            }
-        ],
-        temperature=0,
-        max_tokens=1024,
-        response_format={"type": "json_object"},
-    )
+    try:
+        response = groq_client.chat.completions.create(
+            model=MODEL_NAME,
+            messages=[
+                {
+                    "role": "user",
+                    "content": prompt,
+                }
+            ],
+            temperature=0,
+            max_tokens=1024,
+            response_format={"type": "json_object"},
+        )
 
+    except AuthenticationError as exc:
+        raise LLMConfigurationError(
+            "LLM provider authentication failed. Check the API configuration."
+        ) from exc
+    except (
+        APIConnectionError,
+        RateLimitError,
+        InternalServerError,
+    ) as exc:
+        raise LLMServiceUnavailableError(
+            "Unable to generate an answer using the LLM provider."
+        ) from exc
     raw_output = (response.choices[0].message.content or "").strip()
 
     if not raw_output:

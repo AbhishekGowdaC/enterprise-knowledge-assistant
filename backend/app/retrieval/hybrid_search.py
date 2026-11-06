@@ -3,8 +3,13 @@ import re
 from qdrant_client import QdrantClient
 from rank_bm25 import BM25Okapi
 from sentence_transformers import SentenceTransformer
+import httpx
+from qdrant_client.http.exceptions import (
+    ResponseHandlingException,
+    ApiException,
+)
 
-
+from app.exceptions.custom_exceptions import VectorDatabaseUnavailableError
 QDRANT_URL = "http://localhost:6333"
 COLLECTION_NAME = "enterprise_documents_expanded"
 EMBEDDING_MODEL = "BAAI/bge-small-en-v1.5"
@@ -13,18 +18,13 @@ TOP_K = 5
 CANDIDATE_K = 30          # per-retriever candidate pool (was 10)
 RRF_K = 60
 
-# A chunk ranked #1 in both lists scores ~0.033 under RRF (k=60), so the
-# bonuses are kept small relative to that: they nudge, not override.
 EXACT_MATCH_BONUS = 0.008
 HOTLINE_CONTEXT_BONUS = 0.003
 
-# Ignore very short numeric tokens ("2", "10") which match too much noise.
 MIN_EXACT_TOKEN_LEN = 3
 
-# Words and hyphenated identifiers, e.g. "inc-4521" stays whole.
 TOKEN_RE = re.compile(r"\b\w+(?:-\w+)*\b")
 
-# Word-boundary match, so "call" no longer hits "recall" or "calculate".
 HOTLINE_RE = re.compile(
     r"\b(?:hotline|extension|security incidents?|phishing|calls?)\b"
 )
@@ -73,32 +73,43 @@ def load_chunks(client: QdrantClient) -> list[dict]:
     chunks = []
     offset = None
 
-    while True:
-        points, next_offset = client.scroll(
-            collection_name=COLLECTION_NAME,
-            limit=100,
-            offset=offset,
-            with_payload=True,
-            with_vectors=False,
-        )
+    try:
+        while True:
+            points, next_offset = client.scroll(
+                collection_name=COLLECTION_NAME,
+                limit=100,
+                offset=offset,
+                with_payload=True,
+                with_vectors=False,
+            )
 
-        for point in points:
-            payload = point.payload or {}
-            text = payload.get("text", "").strip()
+            for point in points:
+                payload = point.payload or {}
+                text = payload.get("text", "").strip()
 
-            if text:
-                chunks.append({
-                    "id": str(point.id),
-                    "text": text,
-                    "source": payload.get("source", "unknown"),
-                    "chunk_index": payload.get("chunk_index", -1),
-                })
+                if text:
+                    chunks.append({
+                        "id": str(point.id),
+                        "text": text,
+                        "source": payload.get("source", "unknown"),
+                        "chunk_index": payload.get("chunk_index", -1),
+                    })
 
-        if next_offset is None:
-            break
+            if next_offset is None:
+                break
 
-        offset = next_offset
+            offset = next_offset
 
+    
+    except (
+        httpx.ConnectError,
+        httpx.TimeoutException,
+        httpx.NetworkError,
+        ResponseHandlingException,
+    ) as exc:
+        raise VectorDatabaseUnavailableError(
+            "Unable to retrieve document chunks from Qdrant."
+        ) from exc
     return chunks
 
 
@@ -113,12 +124,23 @@ def dense_search(
         normalize_embeddings=True,
     ).tolist()
 
-    response = client.query_points(
-        collection_name=COLLECTION_NAME,
-        query=query_vector,
-        limit=CANDIDATE_K,
-        with_payload=True,
-    )
+    try:
+        response = client.query_points(
+            collection_name=COLLECTION_NAME,
+            query=query_vector,
+            limit=CANDIDATE_K,
+            with_payload=True,
+        )
+
+    except (
+        httpx.ConnectError,
+        httpx.TimeoutException,
+        httpx.NetworkError,
+        ResponseHandlingException,
+    ) as exc:
+        raise VectorDatabaseUnavailableError(
+            "Unable to perform semantic search in Qdrant."
+        ) from exc
 
     results = []
 
